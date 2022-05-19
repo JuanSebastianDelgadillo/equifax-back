@@ -1,0 +1,28 @@
+{
+  "name": "equifax-back",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JuanSebastianDelgadillo/equifax-back.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JuanSebastianDelgadillo/equifax-back/issues"
+  },
+  "homepage": "https://github.com/JuanSebastianDelgadillo/equifax-back#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "bcrypt": "^5.0.1",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "lodash": "^4.17.21",
+    "moment": "^2.29.3"
+  }
+}
