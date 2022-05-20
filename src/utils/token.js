@@ -15,7 +15,7 @@ class Token{
         return token
     }
 
-    validate_token(token){
+    async validate_token(token){
         jwt.verify(token, process.env.TOKEN, (err, decoded) => { 
             if(err){
                 return false

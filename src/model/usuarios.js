@@ -1,7 +1,6 @@
 const { get } = require('lodash');
 const { getPool, execQuery, terminate } = require('../config/db');
 
-
 let globalPool = null;
 
 const setPool = async () => {
@@ -54,8 +53,59 @@ const getLogin = async(loginUser) => {
     }
 }
 
+const newUser = async (usuario) => {
+    try {
+        const pool = await setPool();
+        const res = await execQuery(pool, `INSERT INTO usuarios (nombre, apellido, email, login, password) VALUES ('${usuario.nombre}', '${usuario.apellido}', '${usuario.email}', '${usuario.login}', '${usuario.password}')`);
+        await terminate(pool);
+        if(res){
+            return true;
+        }else{
+            return false;
+        }
+    } catch (error) {
+        console.log("Error en la operación model new User", err)
+    }
+    
+}
+
+const updateUser = async (id,usuario) => {
+    try {
+        const pool = await setPool();
+        const res = await execQuery(pool, `UPDATE usuarios SET nombre = '${usuario.nombre}', apellido = '${usuario.apellido}', email = '${usuario.email}', login = '${usuario.login}', password = '${usuario.password}' where id = ${id}`);
+        await terminate(pool);
+        if(res){
+            return true;
+        }else{
+            return false;
+        }
+    } catch (error) {
+        console.log("Error en la operación model updateUser", err)
+    }
+    
+}
+
+const deleteUser = async (id) => {
+    try {
+        const pool = await setPool();
+        const res = await execQuery(pool, `DELETE FROM usuarios where id = ${id}`);
+        await terminate(pool);
+        if(res){
+            return true;
+        }else{
+            return false;
+        }
+    } catch (error) {
+        console.log("Error en la operación model updateUser", err)
+    }
+    
+}
+
 module.exports = {
     getAllUsuarios,
     getUsuario,
-    getLogin
+    getLogin,
+    newUser,
+    updateUser,
+    deleteUser
 }

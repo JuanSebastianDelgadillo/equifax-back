@@ -10,18 +10,6 @@ const tickets = new Tickets();
 const routes = [
     {
       method: 'get',
-      path: '/testReciproca',
-      middleware: [],
-      action: usuarios.testReciproca
-    },
-    {
-      method: 'get',
-      path: '/testPrueba',
-      middleware: [auth],
-      action: usuarios.testPrueba
-    },
-    {
-      method: 'get',
       path: '/getAllUsuarios',
       middleware: [auth],
       action: usuarios.getAllUsuarios
