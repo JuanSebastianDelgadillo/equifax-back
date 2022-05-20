@@ -1,4 +1,5 @@
 const bodyParser = require('body-parser')
+const config = require('../config/config')
 
 module.exports = (app) => {
   const logRequestStart = (req, res, next) => {

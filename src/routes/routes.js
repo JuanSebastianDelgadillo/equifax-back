@@ -10,44 +10,50 @@ const tickets = new Tickets();
 const routes = [
     {
       method: 'get',
-      path: '/searchusuarios',
+      path: '/testReciproca',
+      middleware: [],
+      action: usuarios.testReciproca
+    },
+    {
+      method: 'get',
+      path: '/testPrueba',
       middleware: [auth],
-      action: usuarios.searchusuarios
+      action: usuarios.testPrueba
+    },
+    {
+      method: 'get',
+      path: '/getAllUsuarios',
+      middleware: [auth],
+      action: usuarios.getAllUsuarios
     },
     {
       method: 'post',
-      path: '/newClient',
+      path: '/newUsuario',
       middleware: [auth],
-      action: usuarios.newusuarios
+      action: usuarios.newUsuario
+    },
+    {
+      method: 'put',
+      path: '/updateUsuario/:id',
+      middleware: [auth],
+      action: usuarios.updateUsuario
+    },
+    {
+      method: 'delete',
+      path: '/deleteUsuario/:id',
+      middleware: [auth],
+      action: usuarios.deleteUsuario
     },
     {
       method: 'get',
-      path: '/searchtickets',
+      path: '/getTickets',
       middleware: [auth],
-      action: tickets.searchBanks
-    },
-    {
-      method: 'get',
-      path: '/searchAccountTypeAll',
-      middleware: [auth],
-      action: tickets.searchAccountTypeAll
-    },
-    {
-      method: 'get',
-      path: '/searchTransferHistory',
-      middleware: [auth],
-      action: tickets.searchTransferHistory
-    },
-    {
-      method: 'post',
-      path: '/saveTranferencia',
-      middleware: [auth],
-      action: tickets.saveTranferencia
+      action: tickets.getTickets
     },
     {
       method: 'post',
       path: '/getLogin',
-      middleware: [auth],
+      middleware: [],
       action: usuarios.getLogin
     }
   ]
