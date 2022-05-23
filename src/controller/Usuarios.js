@@ -22,6 +22,18 @@ class Usuarios{
         }
     }
 
+    async getUsuario (req, res){
+        try{
+            const usuario = get(req, 'body', '');
+            const dataUsuario = getUsuario(usuario.id);
+            res.status(200).send({internalCode: 200, message: "OK", payload: dataUsuario});
+        }
+        catch(err){
+            res.status(404).send("error");
+            console.log("Usuario no encontrado", err)
+        }
+    }
+
     async newUsuario (req, res){
         try{
             const usuario = get(req, 'body', '');

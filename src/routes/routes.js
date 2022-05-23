@@ -34,6 +34,12 @@ const routes = [
     },
     {
       method: 'get',
+      path: '/getUsuario/:id',
+      middleware: [auth],
+      action: usuarios.getUsuario
+    },
+    {
+      method: 'get',
       path: '/getTickets',
       middleware: [auth],
       action: tickets.getTickets
