@@ -10,8 +10,8 @@ const setPool = async () => {
 }
 
 const getAllUsuarios = async () => {
-    const pool = await setPool();
     try{
+        const pool = await setPool();
         const { results } = await execQuery(pool, 'SELECT * FROM usuarios');
         await terminate(pool);
         return results[0];

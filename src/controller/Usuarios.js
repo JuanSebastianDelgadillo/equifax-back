@@ -1,5 +1,7 @@
 const { get } = require('lodash');
 const { getAllUsuarios, getLogin, getUsuario, newUser,updateUser, deleteUser } = require('../model/usuarios');
+const { getAllTickets } = require('../model/tickets');
+
 const Encriptar = require('../utils/encript');
 const encriptar = new Encriptar({ path: '' });
 const Token = require('../utils/token');
@@ -89,6 +91,20 @@ class Usuarios{
                 const tokenCreated = await token.createToken(dataLogin.id);
                 dataUsuario["token"] = tokenCreated;
                 res.status(200).send({internalCode: 200, message: "OK", payload: dataUsuario});
+            }else{
+                res.status(500).send({internalCode: 500, message: "ERROR"});
+            }
+        }
+        catch(err){
+            console.log("Error en la operación model getLogin", err)
+        }
+    }
+
+    async getAllTickets(req, res){
+        try{
+            const dataTickets = await getLgetAllTicketsogin();
+            if(dataTickets){
+                res.status(200).send({internalCode: 200, message: "OK", payload: dataTickets});
             }else{
                 res.status(500).send({internalCode: 500, message: "ERROR"});
             }
