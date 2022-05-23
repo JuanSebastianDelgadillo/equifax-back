@@ -56,6 +56,14 @@ const routes = [
       middleware: [],
       action: usuarios.getAllTickets
       
+    },
+    ,
+    {
+      method: 'post',
+      path: '/validaToken/',
+      middleware: [],
+      action: usuarios.validaToken
+      
     }
   ]
   module.exports = {

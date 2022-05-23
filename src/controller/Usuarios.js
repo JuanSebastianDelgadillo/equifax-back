@@ -131,7 +131,7 @@ class Usuarios{
             const token = get(req, 'body.token', '');
             const tokenValidate = await token.validate_token(token);
             if(tokenValidate){
-                res.status(200).send({internalCode: 200, message: "OK", payload: dataTickets});
+                res.status(200).send({internalCode: 200, message: "OK", payload: tokenValidate});
             }else{
                 res.status(500).send({internalCode: 500, message: "ERROR"});
             }
