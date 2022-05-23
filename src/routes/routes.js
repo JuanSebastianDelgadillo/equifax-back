@@ -43,6 +43,13 @@ const routes = [
       path: '/getLogin',
       middleware: [],
       action: usuarios.getLogin
+    },
+    {
+      method: 'get',
+      path: '/getAllTickets',
+      middleware: [],
+      action: usuarios.getAllTickets
+      
     }
   ]
   module.exports = {
