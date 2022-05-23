@@ -125,6 +125,24 @@ class Usuarios{
             console.log("Error en la operación model getLogin", err)
         }
     }
+
+    async validaToken(req, res){
+        try{
+            const token = get(req, 'body.token', '');
+            const tokenValidate = await token.validate_token(token);
+            if(tokenValidate){
+                res.status(200).send({internalCode: 200, message: "OK", payload: dataTickets});
+            }else{
+                res.status(500).send({internalCode: 500, message: "ERROR"});
+            }
+        }
+        catch(err){
+            console.log("Error en la operación model getLogin", err)
+        }
+    }
+
+    
+
 }
 
 module.exports = Usuarios
